@@ -1,0 +1,23 @@
+---
+- hosts: www
+
+  vars:
+    - root_dir: ..
+
+
+  pre_tasks:
+    - debug: msg="Pre tasks section"
+
+  roles:
+     - {
+         role: "sa-swagger-ui",
+
+         option_install_nodejs: true,
+         swaggerui_version: 2.1.4,
+         install_dir: /var/www/swagger,
+         nodejs_version: "4.x"
+       }
+
+
+  tasks:
+    - debug: msg="Tasks section"
